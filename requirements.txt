@@ -1,1 +1,8 @@
 pip install PyGithub
+
+
+## For Token setup instructions
+1. Create a `.env` file in the root directory.
+2. Add the required variables ->( e.g. access_token = "your key" )
+3. Make sure to put `.env` under `.gitignore` file so that it should remain safe from commit.
+4. Run the application.
