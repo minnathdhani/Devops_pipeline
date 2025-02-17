@@ -20,3 +20,7 @@ pipx install PyGithub
 ## python & git version validation steps 
 python3 --version
 git --version 
+
+## Ubuntu directory Setup
+mkdir -p ~/Devops-pipeline
+cd ~/Devops-pipeline
