@@ -17,3 +17,4 @@ repos = user.get_repos()
 for repo in repos:
     print(f"- {repo.name}")
 
+g.close()
