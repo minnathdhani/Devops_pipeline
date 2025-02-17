@@ -9,6 +9,7 @@ Welcome to our **CI CD Project** repository!
 4. Harjeet
 5. Jasmine
 6. Aniruddha
+7. Ankit
 
 
 ## 📂 Project Structure  
