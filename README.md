@@ -12,6 +12,6 @@ Welcome to our **CI CD Project** repository!
 
 
 ## 📂 Project Structure  
-- **index.html** - Basic inde.  
+- **index.html** - Landing page of site.
 - **requirements.txt** - Dependencies required for running the scripts.
 
