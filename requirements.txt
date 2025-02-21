@@ -9,7 +9,7 @@
 5. Run the application.
 
 ## Need to install below on your Ubuntu/Linux
-sudo apt install -y nginx
+sudo apt install -y nginx 
 sudo apt install -y git
 sudo apt install -y python3
 sudo apt install pipx -y
@@ -20,6 +20,11 @@ pipx install PyGithub
 ## python & git version validation steps 
 python3 --version
 git --version 
+
+## nginx validation status
+sudo systemctl status nginx
+"If not running, start it using" 
+sudo systemctl start nginx
 
 ## Ubuntu directory Setup
 mkdir -p ~/Devops_CICD
@@ -39,8 +44,8 @@ crontab -e
 crontab -l
 systemctl status cron
 "If not running, start it using" 
-RUN: sudo systemctl start cron
-RUN: sudo systemctl restart cron
+sudo systemctl start cron
+sudo systemctl restart cron
 
 ## Check Cron Logs for Errors
 sudo journalctl -u cron --since "1 hour ago"
