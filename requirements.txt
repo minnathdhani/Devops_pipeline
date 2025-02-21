@@ -22,5 +22,14 @@ python3 --version
 git --version 
 
 ## Ubuntu directory Setup
-mkdir -p ~/Devops-pipeline
-cd ~/Devops-pipeline
+mkdir -p ~/Devops_CICD
+cd ~/Devops_CICD
+
+## Create a Python Script to Check for New Commits on Ubuntu Server
+nano ~/Devops_CICD/check_commits.py
+
+## Create a Bash Script for Deployment
+nano ~/Devops_CICD/deploy.sh
+
+##  Set Up a Cron Job to Run the Python Script
+crontab -e
