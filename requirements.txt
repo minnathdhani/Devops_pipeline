@@ -33,3 +33,16 @@ nano ~/Devops_CICD/deploy.sh
 
 ##  Set Up a Cron Job to Run the Python Script
 crontab -e
+* * * * * /usr/bin/python3 $HOME/Devops_CICD/check_commits.py >> $HOME/Devops_CICD/log/check_commits.log 2>&1
+
+## Validation Steps for Cron
+crontab -l
+systemctl status cron
+"If not running, start it using" 
+RUN: sudo systemctl start cron
+RUN: sudo systemctl restart cron
+
+## Check Cron Logs for Errors
+sudo journalctl -u cron --since "1 hour ago"
+
+
