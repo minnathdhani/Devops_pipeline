@@ -20,7 +20,8 @@ def get_latest_commit():
         sys.exit(1)  # Stop execution
 
     url = f"https://api.github.com/repos/{GITHUB_REPO}/branches/main"
-    headers = {"Authorization": f"token {GITHUB_TOKEN}"}
+    headers = {"Authorization": f"token {GITHUB_TOKEN}",
+               "Cache-Control": "no-cache"}
 
     response = requests.get(url, headers=headers)
 

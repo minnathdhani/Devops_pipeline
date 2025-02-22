@@ -15,7 +15,7 @@ cd $REPO_DIR
 if [ -d ".git" ]; then
     git pull origin main
 else
-    git clone https://github.com/minnathdhani/Devops_pipeline.git $REPO_DIR
+    git clone https://github.com/minnathdhani/Devops_pipeline.git $REPO_DIR > /dev/null 2>&1
 fi
 
 # Restart Nginx
