@@ -4,7 +4,7 @@ sudo apt install -y git
 sudo apt install -y python3
 sudo apt install pipx -y
 pipx ensurepath
-sudo apt install -y python3-dotenv
+
 
 ## Clone the repo in ubuntu
 1. Setup you ssh
@@ -17,7 +17,7 @@ sudo apt install -y python3-dotenv
 4. Make sure to put `.env` under `.gitignore` file so that it should remain safe from commit.
 
 ## For Token setup instructions in ubuntu
-1. pipx install python-dotenv
+1. sudo apt install -y python3-dotenv
 2. Create a `.env` & `.gitignore` file in the "Devops_pipeline" directory.
 3. Add the required variables ->( e.g. GITHUB_TOKEN = "your key" )
 4. Make sure to put `.env` under `.gitignore` file so that it should remain safe from commit.
