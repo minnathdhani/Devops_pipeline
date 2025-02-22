@@ -2,8 +2,8 @@
 
 # Get the current user's home directory
 USER_HOME=$(eval echo ~$(whoami))
-REPO_DIR="$USER_HOME/Devops_pipeline/"
-PROJECT_DIR="$USER_HOME/Devops_pipeline/log"
+REPO_DIR="$USER_HOME/Devops_CICD/Devops_pipeline/"
+PROJECT_DIR="$USER_HOME/Devops_CICD/Devops_pipeline/log"
 
 # Log start
 echo "Starting deployment at $(date)" >> $PROJECT_DIR/deploy.log
