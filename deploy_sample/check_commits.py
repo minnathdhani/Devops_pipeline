@@ -7,7 +7,7 @@ load_dotenv()
 # GitHub repository details
 GITHUB_REPO = "minnathdhani/Devops_pipeline"  # Change this
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")  # Use a GitHub token with repo read access
-
+# GITHUB_TOKEN = ("GITHUB_TOKEN") #For ubuntu
 # Get the current user's home directory dynamically
 HOME_DIR = os.path.expanduser("~")
 LOCAL_COMMIT_FILE = f"{HOME_DIR}/Devops_CICD/log/latest_commit.txt"
