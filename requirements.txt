@@ -1,6 +1,3 @@
-
-
-
 ## For Token setup instructions
 1. pip install python-dotenv
 2. Create a `.env` file in the root directory.
@@ -9,7 +6,7 @@
 5. Run the application.
 
 ## Need to install below on your Ubuntu/Linux
-sudo apt install -y nginx
+sudo apt install -y nginx 
 sudo apt install -y git
 sudo apt install -y python3
 sudo apt install pipx -y
@@ -21,6 +18,33 @@ pipx install PyGithub
 python3 --version
 git --version 
 
+## nginx validation status
+sudo systemctl status nginx
+"If not running, start it using" 
+sudo systemctl start nginx
+
 ## Ubuntu directory Setup
-mkdir -p ~/Devops-pipeline
-cd ~/Devops-pipeline
+mkdir -p ~/Devops_CICD
+cd ~/Devops_CICD
+
+## Create a Python Script to Check for New Commits on Ubuntu Server
+nano ~/Devops_CICD/check_commits.py
+
+## Create a Bash Script for Deployment
+nano ~/Devops_CICD/deploy.sh
+
+##  Set Up a Cron Job to Run the Python Script
+crontab -e
+* * * * * /usr/bin/python3 $HOME/Devops_CICD/check_commits.py >> $HOME/Devops_CICD/log/check_commits.log 2>&1
+
+## Validation Steps for Cron
+crontab -l
+systemctl status cron
+"If not running, start it using" 
+sudo systemctl start cron
+sudo systemctl restart cron
+
+## Check Cron Logs for Errors
+sudo journalctl -u cron --since "1 hour ago"
+
+
