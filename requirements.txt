@@ -5,10 +5,11 @@ sudo apt install -y python3
 sudo apt install pipx -y
 pipx ensurepath
 
-
 ## Clone the repo in ubuntu
 1. Setup you ssh
-2. git clone reponame
+2. mdkir Devops_CICD
+3. cd Devops_CICD
+4. git clone reponame
 
 ## For Token setup instructions in windows
 1. pip install python-dotenv
@@ -33,7 +34,7 @@ sudo systemctl start nginx
 
 ##  Set Up a Cron Job to Run the Python Script
 crontab -e
-* * * * * /usr/bin/python3 $HOME/Devops_CICD/check_commits.py >> $HOME/Devops_pipeline/log/check_commits.log 2>&1
+* * * * * /usr/bin/python3 $HOME/Devops_CICD/Devops_CICD/check_commits.py >> $HOME/Devops_CICD/Devops_pipeline/log/check_commits.log 2>&1
 
 ## Validation Steps for Cron
 crontab -l
