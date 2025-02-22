@@ -11,11 +11,10 @@ g = Github(github_token)
 user = g.get_user()
 print(f"Authenticated as {user.login}")
 
+# List all repositories
+print("Repositories:")
+repos = user.get_repos()
+for repo in repos:
+    print(f"- {repo.name}")
 
-repo_name = "minnathdhani/Devops_pipeline" 
-repo = g.get_repo(repo_name)
-
-print(f"\nCommits in repository '{repo_name}':")
-commits = repo.get_commits()
-for commit in commits:
-    print(f"- {commit.sha}: {commit.commit.message} (by {commit.commit.author.name})")
+g.close()
