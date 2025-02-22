@@ -2,23 +2,39 @@
 
 # Get the current user's home directory
 USER_HOME=$(eval echo ~$(whoami))
-REPO_DIR="$USER_HOME/Devops_CICD/Devops_pipeline"
 PROJECT_DIR="$USER_HOME/Devops_CICD"
+REPO_DIR="$PROJECT_DIR/Devops_pipeline"
+SUDOERS_FILE="/etc/sudoers.d/nginx_restart"
+LOG_FILE="$PROJECT_DIR/log/deploy.log"
+
+# Ensure the log directory exists
+mkdir -p $PROJECT_DIR/log
 
 # Log start
-echo "Starting deployment at $(date)" >> $PROJECT_DIR/log/deploy.log
+echo "Starting deployment at $(date)" >> $LOG_FILE
 
-# Pull latest changes
-if [ -d ".git" ]; then
+# Add sudoers rule if not exists
+USERNAME=$(whoami)
+RULE="$USERNAME ALL=(ALL) NOPASSWD: /bin/systemctl restart nginx"
+
+# Check if rule is already present
+if ! sudo grep -Fxq "$RULE" $SUDOERS_FILE 2>/dev/null; then
+    echo "$RULE" | sudo tee $SUDOERS_FILE > /dev/null
+    echo "Added sudoers rule for Nginx restart" >> $LOG_FILE
+else
+    echo "Sudoers rule already exists" >> $LOG_FILE
+fi
+
+# Pull latest changes or clone if missing
+if [ -d "$REPO_DIR/.git" ]; then
     cd $REPO_DIR
     git pull origin main
 else
-    cd $PROJECT_DIR
-    git clone https://github.com/minnathdhani/Devops_pipeline.git $PROJECT_DIR > /dev/null 2>&1
+    git clone https://github.com/minnathdhani/Devops_pipeline.git $REPO_DIR
 fi
 
 # Restart Nginx
 sudo systemctl restart nginx
 
 # Log completion
-echo "Deployment completed at $(date)" >> $PROJECT_DIR/log/deploy.log
+echo "Deployment completed at $(date)" >> $LOG_FILE
