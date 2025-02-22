@@ -53,10 +53,20 @@ RUN: sudo systemctl restart cron
 ## Check Cron Logs for Errors
 RUN: sudo journalctl -u cron --since "1 hour ago"
 
-## Run this command once to allow your user to restart Nginx without a password:
+## Run this command once to allow your user to restart Nginx without a password
 RUN: echo "$(whoami) ALL=(ALL) NOPASSWD: /bin/systemctl restart nginx" | sudo tee /etc/sudoers.d/nginx_restart
 
 ## Nginx Configuration
 RUN: sudo nano /etc/nginx/sites-available/default
 SET: root /home/tanujbhatia/Devops_CICD/Devops_pipeline/;
 RUN: sudo systemctl restart nginx
+
+## Steps to Create an askpass_script
+RUN: nano ~/askpass.sh
+
+## Paste the following code inside the file
+#!/bin/bash
+SET: echo "your_sudo_password" #Replace your_sudo_password with your actual sudo password
+
+## Make It Executable
+RUN: chmod +x ~/askpass.sh

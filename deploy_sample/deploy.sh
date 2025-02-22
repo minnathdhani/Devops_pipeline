@@ -28,13 +28,19 @@ fi
 # Pull latest changes or clone if missing
 if [ -d "$REPO_DIR/.git" ]; then
     cd $REPO_DIR
-    git pull origin main
+        if ! git pull origin main; then
+        log_message "Git pull failed!"
+        exit 1
 else
-    git clone https://github.com/minnathdhani/Devops_pipeline.git $REPO_DIR
+    if ! git clone https://github.com/minnathdhani/Devops_pipeline.git "$REPO_DIR"; then
+        log_message "Git clone failed!"
+        exit 1
+    fi
 fi
 
 # Restart Nginx
-sudo systemctl restart nginx
+export SUDO_ASKPASS=~/askpass.sh
+sudo -A systemctl restart nginx
 
 # Log completion
 echo "Deployment completed at $(date)" >> $LOG_FILE

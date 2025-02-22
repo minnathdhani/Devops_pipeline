@@ -11,7 +11,7 @@ GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")  # Use a GitHub token with repo read ac
 # Get the current user's home directory dynamically
 HOME_DIR = os.path.expanduser("~")
 LOCAL_COMMIT_FILE = f"{HOME_DIR}/Devops_CICD/log/latest_commit.txt"
-DEPLOY_SCRIPT = f"{HOME_DIR}/Devops_CICD/Devops_pipeline/deploy.sh"
+DEPLOY_SCRIPT = f"{HOME_DIR}/Devops_CICD/deploy.sh"
 
 def get_latest_commit():
     """Fetch the latest commit SHA from GitHub API."""
