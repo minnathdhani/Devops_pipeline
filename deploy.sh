@@ -19,7 +19,7 @@ else
 fi
 
 # Restart Nginx
-systemctl restart nginx
+sudo systemctl restart nginx
 
 # Log completion
 echo "Deployment completed at $(date)" >> $PROJECT_DIR/deploy.log
