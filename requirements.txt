@@ -1,10 +1,3 @@
-## For Token setup instructions
-1. pip install python-dotenv
-2. Create a `.env` file in the root directory.
-3. Add the required variables ->( e.g. GITHUB_TOKEN = "your key" )
-4. Make sure to put `.env` under `.gitignore` file so that it should remain safe from commit.
-5. Run the application.
-
 ## Need to install below on your Ubuntu/Linux
 sudo apt install -y nginx 
 sudo apt install -y git
@@ -13,6 +6,21 @@ sudo apt install pipx -y
 pipx ensurepath
 pipx install PyGithub
 
+## Clone the repo in ubuntu
+1. Setup you ssh
+2. git clone reponame
+
+## For Token setup instructions in windows
+1. pip install python-dotenv
+2. Create a `.env` file in the root directory.
+3. Add the required variables ->( e.g. GITHUB_TOKEN = "your key" )
+4. Make sure to put `.env` under `.gitignore` file so that it should remain safe from commit.
+
+## For Token setup instructions in ubuntu
+1. pipx install python-dotenv
+2. Create a `.env` & `.gitignore` file in the "Devops_pipeline" directory.
+3. Add the required variables ->( e.g. GITHUB_TOKEN = "your key" )
+4. Make sure to put `.env` under `.gitignore` file so that it should remain safe from commit.
 
 ## python & git version validation steps 
 python3 --version
@@ -23,19 +31,9 @@ sudo systemctl status nginx
 "If not running, start it using" 
 sudo systemctl start nginx
 
-## Ubuntu directory Setup
-mkdir -p ~/Devops_CICD
-cd ~/Devops_CICD
-
-## Create a Python Script to Check for New Commits on Ubuntu Server
-nano ~/Devops_CICD/check_commits.py
-
-## Create a Bash Script for Deployment
-nano ~/Devops_CICD/deploy.sh
-
 ##  Set Up a Cron Job to Run the Python Script
 crontab -e
-* * * * * /usr/bin/python3 $HOME/Devops_CICD/check_commits.py >> $HOME/Devops_CICD/log/check_commits.log 2>&1
+* * * * * /usr/bin/python3 $HOME/Devops_CICD/check_commits.py >> $HOME/Devops_pipeline/log/check_commits.log 2>&1
 
 ## Validation Steps for Cron
 crontab -l
