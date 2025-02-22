@@ -53,11 +53,8 @@ RUN: sudo systemctl restart cron
 ## Check Cron Logs for Errors
 RUN: sudo journalctl -u cron --since "1 hour ago"
 
-## Fix: Allow Sudo Without Password (For Specific Command)
-RUN: sudo visudo
-
-## Add this line at the bottom (replace username with your actual username)
-SET: username ALL=(ALL) NOPASSWD: /bin/systemctl restart nginx
+## Run this command once to allow your user to restart Nginx without a password:
+RUN: echo "$(whoami) ALL=(ALL) NOPASSWD: /bin/systemctl restart nginx" | sudo tee /etc/sudoers.d/nginx_restart
 
 ## Nginx Configuration
 RUN: sudo nano /etc/nginx/sites-available/default
