@@ -4,7 +4,7 @@ sudo apt install -y git
 sudo apt install -y python3
 sudo apt install pipx -y
 pipx ensurepath
-pipx install PyGithub
+sudo apt install -y python3-dotenv
 
 ## Clone the repo in ubuntu
 1. Setup you ssh
