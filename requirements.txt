@@ -1,4 +1,4 @@
-## For Token setup instructions
+## For Token setup instructions in windows
 1. pip install python-dotenv
 2. Create a `.env` file in the root directory.
 3. Add the required variables ->( e.g. GITHUB_TOKEN = "your key" )
@@ -12,6 +12,7 @@ sudo apt install -y python3
 sudo apt install pipx -y
 pipx ensurepath
 pipx install PyGithub
+pipx install python-dotenv
 
 
 ## python & git version validation steps 
