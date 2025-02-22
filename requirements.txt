@@ -8,8 +8,15 @@ pipx ensurepath
 ## Clone the repo in ubuntu
 1. Setup you ssh
 2. mdkir Devops_CICD
-3. cd Devops_CICD
-4. git clone reponame
+3. chmod 755 log
+4. cd Devops_CICD
+5. git clone reponame
+6. mkdir log
+7. chmod 755 log
+8. you have to create 2 files name "check_commits.py" & "deploy.sh"
+9. use the code in deploy_sample fodler for your reference
+10. chmod 755 check_commits.py
+11. chmod 755 deploy.sh
 
 ## For Token setup instructions in windows
 1. pip install python-dotenv
@@ -19,9 +26,7 @@ pipx ensurepath
 
 ## For Token setup instructions in ubuntu
 1. sudo apt install -y python3-dotenv
-2. Create a `.env` & `.gitignore` file in the "Devops_pipeline" directory.
-3. Add the required variables ->( e.g. GITHUB_TOKEN = "your key" )
-4. Make sure to put `.env` under `.gitignore` file so that it should remain safe from commit.
+2. Update "GITHUB_TOKEN" value in the "check_commits.py" under "Devops_CICD" directory.
 
 ## python & git version validation steps 
 python3 --version
