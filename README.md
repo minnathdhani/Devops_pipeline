@@ -1,4 +1,4 @@
-# DevOps Pipeline
+# CI-CD_Pipeline_Tool
 
 This project contains a **CICD pipeline** setup for automating deployments.
 
